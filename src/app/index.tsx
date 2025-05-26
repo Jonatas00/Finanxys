@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { colors } from "@/constants/colors";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
@@ -6,7 +6,6 @@ export default function Index() {
     <View style={style.container}>
       <Text style={style.text}>Começe adicionando seu primeiro gasto</Text>
 
-      <Button />
     </View >
   );
 }
@@ -16,9 +15,9 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flex: 1,
-    backgroundColor: "#262626",
+    backgroundColor: colors.background,
   },
   text: {
-    color: "#fff",
+    color: colors.textPrimary,
   }
 });
