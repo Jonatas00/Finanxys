@@ -3,7 +3,6 @@ export const colors = {
   disabled: '#c9d7b0',
   light: '#cede9e',
   card: '#4b6600',
-  surface: '#ffffff',
   textPrimary: '#f3f3f3',
   textSecondary: '#b6b6b6',
   textTitle: '#7bae3e',
