@@ -6,74 +6,27 @@ const transactions = [
     id: 1,
     title: "Transação 1",
     amount: 100,
-    date: "2023-10-01",
+    date: new Date(),
   },
   {
     id: 2,
     title: "Transação 2",
     amount: 200,
-    date: "2023-10-02",
+    date: new Date(),
   },
   {
     id: 3,
     title: "Transação 2",
     amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 4,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 5,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 6,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 7,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 8,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 9,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 10,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
-  },
-  {
-    id: 11,
-    title: "Transação 2",
-    amount: 200,
-    date: "2023-10-02",
+    date: new Date(),
   }
+
 ]
 
 export default function TransactionList() {
   return (
     <ScrollView style={styles.container}>
-      {Array.from(transactions).map((transaction) => (
+      {transactions.map((transaction) => (
         <TransactionItem
           key={transaction.id}
           id={transaction.id}
