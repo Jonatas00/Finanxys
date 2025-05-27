@@ -8,16 +8,16 @@
     "scheme": "finanxys",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
+      "package": "com.jonatas00.Finanxys",
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "package": "com.jonatas00.Finanxys"
+      "edgeToEdgeEnabled": true
+    },
+    "ios": {
+      "supportsTablet": true
     },
     "web": {
       "bundler": "metro",
@@ -35,9 +35,6 @@
           "backgroundColor": "#262626"
         }
       ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    ]
   }
 }
