@@ -1,14 +1,16 @@
 export const colors = {
   background: '#262626',
-  disabled: '#c9d7b0',
+
   light: '#cede9e',
-  card: '#4b6600',
+  textTitle: '#7bae3e',
   textPrimary: '#f3f3f3',
   textSecondary: '#b6b6b6',
-  textTitle: '#7bae3e',
   buttonText: '#ffffff',
   buttonDefault: '#7bae3e',
   buttonPressed: '#689f38',
-  cardPrimary: '#333333',
-  cardSecondary: '#444444',
+  buttonDisabled: '#c9d7b0',
+  modalPrimary: '#333333',
+  modalSecondary: '#444444',
+
+  boxShadow: "2px 2px 3px rgba(0, 0, 0, 0.5)"
 };
