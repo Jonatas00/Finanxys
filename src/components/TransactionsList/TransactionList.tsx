@@ -1,7 +1,7 @@
 import TransactionItem from "@/components/TransactionItem/TransactionItem";
 import { ScrollView, StyleSheet } from "react-native";
 
-const teste = [
+const transactions = [
   {
     id: 1,
     title: "Transação 1",
@@ -70,11 +70,10 @@ const teste = [
   }
 ]
 
-
 export default function TransactionList() {
   return (
     <ScrollView style={styles.container}>
-      {Array.from(teste).map((transaction) => (
+      {Array.from(transactions).map((transaction) => (
         <TransactionItem
           key={transaction.id}
           id={transaction.id}
@@ -90,8 +89,7 @@ export default function TransactionList() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    paddingHorizontal: 16,
     flex: 1,
-    maxHeight: "100%",
   }
 })
