@@ -3,11 +3,18 @@ import { Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { styles } from "./style";
 
-export function Header() {
+export default function Header() {
   return (
     <View style={styles.container}>
-      <Icon name="menu" size={28} color={colors.buttonText} onPress={() => console.warn("Clicou no Hamburger")} />
-      <Text style={styles.title}>Finanxy$</Text>
+      <Icon
+        style={styles.icon}
+        name="menu"
+        color={colors.buttonText}
+        onPress={() => console.warn("Clicou no Hamburger2")}
+      />
+      <Text style={[styles.title]}>
+        Finanxy$
+      </Text>
     </View>
   );
 }
