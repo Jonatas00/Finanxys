@@ -1,13 +1,10 @@
 import { colors } from "@/constants/colors";
-import { useCustomFonts } from "@/hooks/useCustomFonts";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function Layout() {
-  useCustomFonts();
-
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.safeArea}>
