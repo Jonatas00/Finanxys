@@ -11,9 +11,6 @@ export const styles = StyleSheet.create({
   text: {
     color: colors.textPrimary,
     fontSize: 24,
-    fontWeight: "bold",
     padding: 16,
   },
-  description: {},
-
 })
