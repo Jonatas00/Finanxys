@@ -1,10 +1,12 @@
 import Card from "@/components/Card/Card";
 import Header from "@/components/Header/Header";
 import { colors } from "@/constants/colors";
-import { useFonts } from "expo-font";
-import { StyleSheet, Text, View } from "react-native";
+import useCustomFonts from "@/hooks/useCustomFonts";
+import { StyleSheet, View } from "react-native";
 
 export default function Index() {
+  useCustomFonts()
+
   return (
     <View style={style.container}>
       <Header />
