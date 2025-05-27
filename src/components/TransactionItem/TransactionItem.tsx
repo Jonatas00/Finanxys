@@ -1,26 +1,22 @@
-import { Transaction } from '@/hooks/useTransactions';
-import { colors } from '@/styles/colors';
+import { Transaction } from '@/types/transaction';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { styles } from './style';
+
+type Props = {
+  transaction: Transaction
+}
 
 export default function TransacaoItem(transaction: Transaction) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title} >{transaction.title}</Text>
-    </View>
+    <TouchableOpacity style={styles.container}>
+      <View>
+        <Text style={styles.title} >{transaction.title}</Text>
+        <Text style={styles.date}>{transaction.date.toLocaleDateString("pt-br")}</Text>
+      </View>
+      <View>
+        <Text style={styles.amount}>R${transaction.amount.toFixed(2)}</Text>
+      </View>
+    </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.buttonDefault,
-    padding: 12,
-    borderRadius: 8,
-    marginVertical: 8,
-    height: 50,
-    boxShadow: colors.boxShadow
-  },
-  title: {
-    color: colors.textPrimary,
-  }
-});
