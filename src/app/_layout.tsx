@@ -1,4 +1,4 @@
-import { colors } from "@/styles/colors";
+import { colors } from "@/utils/colors";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet } from "react-native";

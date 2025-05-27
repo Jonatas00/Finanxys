@@ -2,7 +2,7 @@ import Header from "@/components/Header/Header";
 import MainCard from "@/components/MainCard/MainCard";
 import TransactionList from "@/components/TransactionsList/TransactionList";
 import useCustomFonts from "@/hooks/useCustomFonts";
-import { colors } from "@/styles/colors";
+import { colors } from "@/utils/colors";
 import { StyleSheet, View } from "react-native";
 
 export default function Index() {
