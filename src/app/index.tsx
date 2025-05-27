@@ -1,5 +1,5 @@
-import Card from "@/components/Card/Card";
 import Header from "@/components/Header/Header";
+import Card from "@/components/MainCard/MainCard";
 import { colors } from "@/constants/colors";
 import useCustomFonts from "@/hooks/useCustomFonts";
 import { StyleSheet, View } from "react-native";

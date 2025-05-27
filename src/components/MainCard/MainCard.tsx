@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { styles } from "./style";
 
-export default function Card() {
+export default function MainCard() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}></Text>

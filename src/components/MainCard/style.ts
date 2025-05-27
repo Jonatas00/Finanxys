@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.buttonDefault,
     height: 150,
     margin: 16,
-    borderRadius: 8,
+    borderRadius: 10,
+    boxShadow: "2px 2px 3px rgba(0, 0, 0, 0.5)",
   },
   text: {
     color: colors.textPrimary,
