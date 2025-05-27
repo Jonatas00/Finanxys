@@ -1,17 +1,9 @@
+import { Transaction } from '@/hooks/useTransactions';
 import { colors } from '@/styles/colors';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-type transactionProps = {
-  id: number;
-  title: string;
-  amount: number;
-  date: string;
-
-};
-
-
-export default function TransacaoItem(transaction: transactionProps) {
+export default function TransacaoItem(transaction: Transaction) {
   return (
     <View style={styles.container}>
       <Text style={styles.title} >{transaction.title}</Text>
