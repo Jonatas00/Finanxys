@@ -1,5 +1,5 @@
 import Header from "@/components/Header/Header";
-import Card from "@/components/MainCard/MainCard";
+import MainCard from "@/components/MainCard/MainCard";
 import { colors } from "@/constants/colors";
 import useCustomFonts from "@/hooks/useCustomFonts";
 import { StyleSheet, View } from "react-native";
@@ -11,7 +11,7 @@ export default function Index() {
     <View style={style.container}>
       <Header />
 
-      <Card />
+      <MainCard />
 
     </View >
   );
