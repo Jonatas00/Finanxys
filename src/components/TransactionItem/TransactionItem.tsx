@@ -3,14 +3,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 type transactionProps = {
+  id: number;
   title: string;
+  amount: number;
+  date: string;
+
 };
 
 
 export default function TransacaoItem(transaction: transactionProps) {
   return (
     <View style={styles.container}>
-      <Text>{transaction.title}</Text>
+      <Text style={styles.title} >{transaction.title}</Text>
     </View>
   );
 }
@@ -22,7 +26,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginVertical: 8,
     height: 50,
-
     boxShadow: colors.boxShadow
+  },
+  title: {
+    color: colors.textPrimary,
   }
 });
