@@ -1,24 +1,28 @@
 import TransactionItem from "@/components/TransactionItem/TransactionItem";
+import { Transaction, TransactionCategory } from "@/types/transaction";
 import { ScrollView, StyleSheet } from "react-native";
 
-const transactions = [
+const transactions: Transaction[] = [
   {
     id: 1,
     title: "Transação 1",
     amount: 100,
     date: new Date(),
+    category: TransactionCategory.EXPENSE
   },
   {
     id: 2,
     title: "Transação 2",
     amount: 200,
     date: new Date(),
+    category: TransactionCategory.EXPENSE
   },
   {
     id: 3,
-    title: "Transação 2",
-    amount: 200,
+    title: "Salário",
+    amount: 3000000,
     date: new Date(),
+    category: TransactionCategory.INCOME
   }
 
 ]
@@ -33,6 +37,7 @@ export default function TransactionList() {
           title={transaction.title}
           amount={transaction.amount}
           date={transaction.date}
+          category={transaction.category}
         />
       ))}
 
