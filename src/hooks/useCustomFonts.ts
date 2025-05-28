@@ -2,8 +2,12 @@ import { useFonts } from "expo-font";
 
 export default function useCustomFonts() {
   const [fontsLoaded] = useFonts({
-    "kanit": require("@/assets/fonts/Kanit-Regular.ttf"),
     "kanit-regular": require("@/assets/fonts/Kanit-Regular.ttf"),
+    "kanit-light": require("@/assets/fonts/Kanit-Light.ttf"),
+
+    "roboto-light": require("@/assets/fonts/Roboto-Light.ttf"),
+    "roboto-medium": require("@/assets/fonts/Roboto-Medium.ttf"),
+    "roboto-regular": require("@/assets/fonts/Roboto-Regular.ttf"),
   });
 
   return fontsLoaded;
