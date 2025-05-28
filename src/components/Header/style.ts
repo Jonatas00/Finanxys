@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     color: colors.textPrimary,
     flex: 1,
     textAlign: "center",
-    fontFamily: "kanit",
+    fontFamily: "kanit-regular",
     fontSize: 40
   }
 });
