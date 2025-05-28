@@ -1,8 +1,8 @@
 import { Transaction, TransactionCategory } from "@/types/transaction";
-import { ScrollView } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
+import AddTransactionButton from "../Button/AddTransactionButton";
 import TransactionItem from "./TransactionItem";
 import TransactionModal from "./TransactionModal";
-import { styles } from "./syles/list.style";
 
 const transactions: Transaction[] = [
   {
@@ -30,8 +30,8 @@ const transactions: Transaction[] = [
 
 export default function TransactionList() {
   return (
-    <>
-      <ScrollView style={styles.container}>
+    <View style={styles.container}>
+      <ScrollView >
         {transactions.map((transaction) => (
           <TransactionItem
             key={transaction.id}
@@ -39,9 +39,17 @@ export default function TransactionList() {
           />
         ))}
       </ScrollView>
+      <AddTransactionButton />
 
       <TransactionModal />
-    </>
+    </View>
   )
 };
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    flex: 1,
+  },
+})
 

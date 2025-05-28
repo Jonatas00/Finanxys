@@ -2,15 +2,16 @@ import { colors } from "@/utils/colors";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  centerView: {
+  button: {
+    backgroundColor: colors.buttonDefault,
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    width: 50,
+    height: 50
   },
-  modal: {
-    width: 360,
-    height: 500,
-    backgroundColor: colors.modalPrimary,
-    borderRadius: 8,
+  title: {
+    color: colors.buttonText,
+    fontSize: 48
   }
 })
