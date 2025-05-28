@@ -1,11 +1,8 @@
-import { Transaction } from '@/types/transaction';
+import { Transaction, TransactionCategory } from '@/types/transaction';
+import { colors } from '@/utils/colors';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './style';
-
-type Props = {
-  transaction: Transaction
-}
 
 export default function TransacaoItem(transaction: Transaction) {
   return (
@@ -15,7 +12,10 @@ export default function TransacaoItem(transaction: Transaction) {
         <Text style={styles.date}>{transaction.date.toLocaleDateString("pt-br")}</Text>
       </View>
       <View>
-        <Text style={styles.amount}>R${transaction.amount.toFixed(2)}</Text>
+        <Text style={[
+          styles.amount,
+          transaction.category === TransactionCategory.EXPENSE && { color: colors.danger }
+        ]}>R${transaction.amount.toFixed(2)}</Text>
       </View>
     </TouchableOpacity>
   );
