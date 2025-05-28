@@ -6,7 +6,7 @@ export const colors = {
   textTitle: '#7bae3e',
 
   light: '#cafa91',
-  danger: '#ff9e9e',
+  danger: '#ff2222',
 
   buttonText: '#ffffff',
   buttonDefault: '#7bae3e',
