@@ -1,4 +1,5 @@
 import TransactionItem from "@/components/TransactionItem/TransactionItem";
+import TransactionModal from "@/components/TransactionModal/TransactionModal";
 import { Transaction, TransactionCategory } from "@/types/transaction";
 import { ScrollView, StyleSheet } from "react-native";
 
@@ -28,19 +29,18 @@ const transactions: Transaction[] = [
 
 export default function TransactionList() {
   return (
-    <ScrollView style={styles.container}>
-      {transactions.map((transaction) => (
-        <TransactionItem
-          key={transaction.id}
-          id={transaction.id}
-          title={transaction.title}
-          amount={transaction.amount}
-          date={transaction.date}
-          category={transaction.category}
-        />
-      ))}
+    <>
+      <ScrollView style={styles.container}>
+        {transactions.map((transaction) => (
+          <TransactionItem
+            key={transaction.id}
+            transaction={transaction}
+          />
+        ))}
+      </ScrollView>
 
-    </ScrollView>
+      <TransactionModal />
+    </>
   )
 };
 

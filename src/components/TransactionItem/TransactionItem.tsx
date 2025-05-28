@@ -4,7 +4,11 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './style';
 
-export default function TransacaoItem(transaction: Transaction) {
+type Props = {
+  transaction: Transaction
+}
+
+export default function TransacaoItem({ transaction }: Props) {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.view}>
