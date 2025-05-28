@@ -11,6 +11,8 @@ export function useTransaction() {
   }
 
   return {
-    transactions
+    transactions,
+    addTransaction,
+    clearTransaction
   }
 }
