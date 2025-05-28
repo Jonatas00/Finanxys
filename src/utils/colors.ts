@@ -2,11 +2,11 @@ export const colors = {
   background: '#262626',
 
   textPrimary: '#f3f3f3',
-  textSecondary: '#b6b6b6',
+  textSecondary: '#e6e6e6',
   textTitle: '#7bae3e',
 
   light: '#cafa91',
-  danger: '#ff2222',
+  danger: '#f75555',
 
   buttonText: '#ffffff',
   buttonDefault: '#7bae3e',
