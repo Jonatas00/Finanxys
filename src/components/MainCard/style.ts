@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     height: 150,
     margin: 16,
     borderRadius: 10,
-    boxShadow: colors.boxShadow,
   },
   text: {
     color: colors.textPrimary,
