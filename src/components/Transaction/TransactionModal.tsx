@@ -1,6 +1,6 @@
 import { BlurView } from "expo-blur"
 import { Modal, View } from "react-native"
-import { styles } from "./style"
+import { styles } from "./syles/modal.style"
 
 export default function TransactionModal() {
   return (

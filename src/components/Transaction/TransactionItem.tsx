@@ -2,7 +2,7 @@ import { Transaction, TransactionCategory } from '@/types/transaction';
 import { colors } from '@/utils/colors';
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './style';
+import { styles } from "./syles/item.style";
 
 type Props = {
   transaction: Transaction
