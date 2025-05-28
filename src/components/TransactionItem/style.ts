@@ -1,5 +1,5 @@
 import { colors } from "@/utils/colors";
-import { StyleSheet } from "react-native";
+import { StyleSheet, } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,6 +17,9 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexWrap: "nowrap",
     justifyContent: "center",
+  },
+  amountView: {
+    alignItems: "flex-end",
   },
   title: {
     color: colors.textPrimary,

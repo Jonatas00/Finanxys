@@ -15,7 +15,7 @@ export default function TransacaoItem(transaction: Transaction) {
           {transaction.date.toLocaleDateString("pt-br")}
         </Text>
       </View>
-      <View style={styles.view}>
+      <View style={[styles.view, styles.amountView]}>
         <Text style={[
           styles.amount,
           transaction.category === TransactionCategory.EXPENSE && { color: colors.danger }
