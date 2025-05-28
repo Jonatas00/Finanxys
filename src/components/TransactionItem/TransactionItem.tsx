@@ -7,15 +7,21 @@ import { styles } from './style';
 export default function TransacaoItem(transaction: Transaction) {
   return (
     <TouchableOpacity style={styles.container}>
-      <View>
-        <Text style={styles.title} >{transaction.title}</Text>
-        <Text style={styles.date}>{transaction.date.toLocaleDateString("pt-br")}</Text>
+      <View style={styles.view}>
+        <Text style={styles.title} numberOfLines={1}>
+          {transaction.title}
+        </Text>
+        <Text style={styles.date}>
+          {transaction.date.toLocaleDateString("pt-br")}
+        </Text>
       </View>
-      <View>
+      <View style={styles.view}>
         <Text style={[
           styles.amount,
           transaction.category === TransactionCategory.EXPENSE && { color: colors.danger }
-        ]}>R${transaction.amount.toFixed(2)}</Text>
+        ]} numberOfLines={1}>
+          R${transaction.amount.toFixed(2)}
+        </Text>
       </View>
     </TouchableOpacity>
   );

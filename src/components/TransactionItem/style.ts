@@ -12,18 +12,24 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 8,
     marginVertical: 8,
     borderRadius: 8,
-    boxShadow: colors.boxShadow,
+  },
+  view: {
+    flex: 1,
+    flexWrap: "nowrap",
+    justifyContent: "center",
   },
   title: {
     color: colors.textPrimary,
     fontSize: 20,
-    fontWeight: "bold"
+    fontFamily: "roboto-regular"
   },
   date: {
-    color: colors.textPrimary,
+    color: colors.textSecondary,
+    fontFamily: "roboto-light"
   },
   amount: {
     fontSize: 20,
-    color: colors.light
+    color: colors.light,
+    fontFamily: "roboto-regular"
   }
 });
