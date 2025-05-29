@@ -30,7 +30,7 @@ const transactions: Transaction[] = [
 
 export default function TransactionList() {
   return (
-    <View style={styles.container}>
+    <View style={styles.transactionsContainer}>
       <ScrollView >
         {transactions.map((transaction) => (
           <TransactionItem
@@ -39,17 +39,22 @@ export default function TransactionList() {
           />
         ))}
       </ScrollView>
-      <AddTransactionButton />
-
+      <View style={styles.buttonContainer} >
+        <AddTransactionButton />
+      </View>
       <TransactionModal />
     </View>
   )
 };
 
 const styles = StyleSheet.create({
-  container: {
+  transactionsContainer: {
     paddingHorizontal: 16,
     flex: 1,
   },
+  buttonContainer: {
+    paddingVertical: 8,
+    alignItems: "flex-end"
+  }
 })
 
