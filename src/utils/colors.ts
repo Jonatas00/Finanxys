@@ -15,7 +15,7 @@ export const colors = {
   buttonDisabled: '#c9d7b0',
 
   modalPrimary: '#333333',
-  modalSecondary: '#444444',
+  modalSecondary: '#999999',
 
   boxShadow: '2px 2px 3px rgba(0, 0, 0, 0.5)',
 };
