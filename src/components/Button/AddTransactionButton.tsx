@@ -1,26 +1,22 @@
 import { colors } from "@/utils/colors";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
-
+import { StyleSheet, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
 export default function AddTransactionButton() {
   return (
     <TouchableOpacity style={styles.button}>
-      <Text style={styles.title}>+</Text>
+      <Icon name={"plus"} size={40} color={colors.buttonText} />
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: colors.buttonDefault,
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    width: 50,
-    height: 50
+    backgroundColor: colors.buttonDefault,
+    width: 60,
+    height: 60,
+    borderRadius: 100
   },
-  title: {
-    color: colors.buttonText,
-    fontSize: 48
-  }
 })
