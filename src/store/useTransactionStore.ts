@@ -8,7 +8,7 @@ type TransactionState = {
   transactions: Transaction[];
   addTransaction: (t: Transaction) => void;
   updateTransaction: (t: Transaction) => void;
-  deleteTransaction: (id: number) => void;
+  deleteTransaction: (id: string) => void;
   clearTransactions: () => void;
 };
 

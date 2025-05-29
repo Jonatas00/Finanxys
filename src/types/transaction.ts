@@ -4,7 +4,7 @@ export enum TransactionCategory {
 }
 
 export type Transaction = {
-  id: number;
+  id: string;
   title: string;
   amount: number;
   date: Date;
