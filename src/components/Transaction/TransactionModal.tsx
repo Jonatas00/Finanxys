@@ -1,12 +1,23 @@
 import { useModalStore } from "@/store/useModalStore";
+import { useTransactionStore } from "@/store/useTransactionStore";
+import { Transaction, TransactionCategory } from "@/types/transaction";
 import { colors } from "@/utils/colors";
 import { BlurView } from "expo-blur";
 import { Modal, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
+
 export default function TransactionModal() {
   const { isModalOpen, closeModal } = useModalStore()
+  const { addTransaction, clearTransactions } = useTransactionStore()
 
+  const transaction: Transaction = {
+    id: Date.now(),
+    title: "primeiro teste com state",
+    amount: 50,
+    date: new Date(),
+    category: TransactionCategory.INCOME
+  }
 
   return (
     <Modal
@@ -21,10 +32,14 @@ export default function TransactionModal() {
         <View style={styles.modal}>
           <Text style={styles.title}>Adicionar Gasto</Text>
           <Icon style={styles.closeButton} name="x" onPress={closeModal}></Icon>
+
+          <View>
+
+
+          </View>
         </View>
       </BlurView>
-
-    </Modal>
+    </Modal >
   )
 }
 

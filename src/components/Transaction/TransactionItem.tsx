@@ -15,7 +15,7 @@ export default function TransacaoItem({ transaction }: Props) {
           {transaction.title}
         </Text>
         <Text style={styles.date}>
-          {transaction.date.toLocaleDateString("pt-br")}
+          <Text>{new Date(transaction.date).toLocaleDateString("pt-br")}</Text>
         </Text>
       </View>
       <View style={[styles.view, styles.amountView]}>
