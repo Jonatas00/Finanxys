@@ -9,6 +9,7 @@ export const colors = {
   danger: '#f75555',
 
   buttonText: '#ffffff',
+  titleText: '#7BAE3E',
   buttonDefault: '#7bae3e',
   buttonPressed: '#689f38',
   buttonDisabled: '#c9d7b0',

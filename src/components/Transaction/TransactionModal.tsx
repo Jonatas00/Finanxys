@@ -1,11 +1,11 @@
 import { colors } from "@/utils/colors";
 import { BlurView } from "expo-blur";
-import { Modal, StyleSheet, View } from "react-native";
+import { Modal, StyleSheet, Text, View } from "react-native";
 
 export default function TransactionModal() {
   return (
     <Modal
-      animationType="slide"
+      animationType="fade"
       transparent={true}
       visible={false}>
       <BlurView
@@ -14,7 +14,7 @@ export default function TransactionModal() {
         style={styles.centerView}
       >
         <View style={styles.modal}>
-
+          <Text style={styles.title}>Adicionar Gasto</Text>
         </View>
       </BlurView>
 
@@ -33,5 +33,11 @@ const styles = StyleSheet.create({
     height: 500,
     backgroundColor: colors.modalPrimary,
     borderRadius: 8,
+    padding: 8
+  },
+  title: {
+    color: colors.titleText,
+    textAlign: "center",
+    fontSize: 24,
   }
 })
