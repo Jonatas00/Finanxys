@@ -1,43 +1,32 @@
-import { Transaction, TransactionCategory } from "@/types/transaction";
-import { ScrollView, StyleSheet, View } from "react-native";
-import AddTransactionButton from "../Button/AddTransactionButton";
+import AddTransactionButton from "@/components/Button/AddTransactionButton";
+import { useTransactionStore } from "@/store/useTransactionStore";
+import { colors } from "@/utils/colors";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import TransactionItem from "./TransactionItem";
 import TransactionModal from "./TransactionModal";
 
-const transactions: Transaction[] = [
-  {
-    id: 1,
-    title: "Transação teste 1",
-    amount: 100,
-    date: new Date(),
-    category: TransactionCategory.INCOME
-  },
-  {
-    id: 2,
-    title: "Transação teste 2",
-    amount: 200,
-    date: new Date(),
-    category: TransactionCategory.EXPENSE
-  },
-  {
-    id: 3,
-    title: "Salário teste 3",
-    amount: 0,
-    date: new Date(),
-    category: TransactionCategory.INCOME
-  }
-]
-
 export default function TransactionList() {
+  const transactions = useTransactionStore(state => state.transactions)
+
   return (
     <View style={styles.transactionsContainer}>
       <ScrollView >
-        {transactions.map((transaction) => (
-          <TransactionItem
-            key={transaction.id}
-            transaction={transaction}
-          />
-        ))}
+        {
+          transactions.length === 0 ? (
+            <View style={styles.emptyContainer}>
+              <Text style={styles.empty}>
+                Comece adicionando seu primeiro gasto
+              </Text>
+            </View>
+          ) : (
+            transactions.map((transaction) => (
+              <TransactionItem
+                key={transaction.id}
+                transaction={transaction}
+              />
+            ))
+          )
+        }
       </ScrollView>
       <View style={styles.buttonContainer} >
         <AddTransactionButton />
@@ -55,6 +44,14 @@ const styles = StyleSheet.create({
   buttonContainer: {
     paddingVertical: 8,
     alignItems: "flex-end"
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  empty: {
+    color: colors.textPrimary
   }
 })
 
