@@ -6,29 +6,31 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 type TransactionState = {
   transactions: Transaction[];
-  addTransaction: (tx: Transaction) => void;
-  updateTransaction: (tx: Transaction) => void;
+  addTransaction: (t: Transaction) => void;
+  updateTransaction: (t: Transaction) => void;
   deleteTransaction: (id: number) => void;
+  clearTransactions: () => void;
 };
 
 export const useTransactionStore = create<TransactionState>()(
   persist(
     (set) => ({
       transactions: [],
-      addTransaction: (tx) =>
+      addTransaction: (t) =>
         set((state) => ({
-          transactions: [...state.transactions, tx],
+          transactions: [...state.transactions, t],
         })),
       updateTransaction: (updatedTx) =>
         set((state) => ({
-          transactions: state.transactions.map((tx) =>
-            tx.id === updatedTx.id ? updatedTx : tx
+          transactions: state.transactions.map((t) =>
+            t.id === updatedTx.id ? updatedTx : t
           ),
         })),
       deleteTransaction: (id) =>
         set((state) => ({
-          transactions: state.transactions.filter((tx) => tx.id !== id),
+          transactions: state.transactions.filter((t) => t.id !== id),
         })),
+      clearTransactions: () => set({ transactions: [] })
     }),
     {
       name: "transactions-storage",
