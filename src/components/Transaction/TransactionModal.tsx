@@ -1,13 +1,18 @@
+import { useModalStore } from "@/store/useModalStore";
 import { colors } from "@/utils/colors";
 import { BlurView } from "expo-blur";
 import { Modal, StyleSheet, Text, View } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
+  const { isModalOpen, closeModal } = useModalStore()
+
+
   return (
     <Modal
       animationType="fade"
       transparent={true}
-      visible={false}>
+      visible={isModalOpen}>
       <BlurView
         intensity={100}
         tint="dark"
@@ -15,6 +20,7 @@ export default function TransactionModal() {
       >
         <View style={styles.modal}>
           <Text style={styles.title}>Adicionar Gasto</Text>
+          <Icon style={styles.closeButton} name="x" onPress={closeModal}></Icon>
         </View>
       </BlurView>
 
@@ -39,5 +45,12 @@ const styles = StyleSheet.create({
     color: colors.titleText,
     textAlign: "center",
     fontSize: 24,
+  },
+  closeButton: {
+    color: colors.textPrimary,
+    fontSize: 40,
+    position: "absolute",
+    right: 0,
+    padding: 8
   }
 })
