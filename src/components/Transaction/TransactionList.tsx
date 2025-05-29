@@ -11,8 +11,8 @@ export default function TransactionList() {
   return (
     <View style={styles.transactionsContainer}>
       <ScrollView >
-        {
-          transactions.length === 0 ? (
+        {transactions.length === 0 ?
+          (
             <View style={styles.emptyContainer}>
               <Text style={styles.empty}>
                 Comece adicionando seu primeiro gasto
@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     paddingVertical: 8,
-    alignItems: "flex-end"
+    alignItems: "flex-end",
+    margin: 8
   },
   emptyContainer: {
     flex: 1,
