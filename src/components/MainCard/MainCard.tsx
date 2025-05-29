@@ -10,7 +10,7 @@ export default function MainCard() {
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.buttonDefault,
+    backgroundColor: colors.cardPrimary,
     height: 150,
     margin: 16,
     borderRadius: 10,
