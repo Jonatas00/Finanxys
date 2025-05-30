@@ -1,25 +1,24 @@
-import { useModalStore } from "@/store/useModalStore";
 import { colors } from "@/utils/colors";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function AddTransactionButton() {
-  const openModal = useModalStore((state) => state.openModal)
+type Props = {
+  onPress: () => void;
+}
 
+
+export function AddTransactionButton({ onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.button} onPress={openModal}>
-      <Icon name={"plus"} size={40} color={colors.buttonText} />
+    <TouchableOpacity style={styles.background} onPress={onPress}>
+      <Text style={styles.text}>Adicionar</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  button: {
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: colors.buttonDefault,
-    width: 60,
-    height: 60,
-    borderRadius: 100
+  background: {
+    backgroundColor: colors.buttonDefault
   },
+  text: {
+    color: colors.buttonText
+  }
 })
