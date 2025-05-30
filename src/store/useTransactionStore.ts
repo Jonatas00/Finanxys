@@ -11,6 +11,11 @@ type TransactionState = {
   deleteTransaction: (id: string) => void;
   clearTransactions: () => void;
 };
+function sortByDateDesc(transactions: Transaction[]) {
+  return transactions.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+} 
 
 export const useTransactionStore = create<TransactionState>()(
   persist(
@@ -18,7 +23,7 @@ export const useTransactionStore = create<TransactionState>()(
       transactions: [],
       addTransaction: (t) =>
         set((state) => ({
-          transactions: [...state.transactions, t],
+          transactions: sortByDateDesc([...state.transactions, t]),
         })),
       updateTransaction: (updatedTx) =>
         set((state) => ({
