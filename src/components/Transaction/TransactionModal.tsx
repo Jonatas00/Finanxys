@@ -8,7 +8,7 @@ import { BlurView } from "expo-blur";
 import * as Crypto from "expo-crypto";
 import React, { useEffect, useState } from "react";
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { RadioButton, TextInput } from "react-native-paper";
+import { RadioButton, TextInput, TextInputProps } from "react-native-paper";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
@@ -16,15 +16,15 @@ export default function TransactionModal() {
   const { addTransaction } = useTransactionStore();
 
   const [type, setType] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
-  const [title, setTitle] = useState("");
-  const [amount, setAmount] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [amount, setAmount] = useState<number>(0);
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
 
   useEffect(() => {
     if (isModalOpen) {
       setTitle("");
-      setAmount("");
+      setAmount(0);
       setType(TransactionCategory.EXPENSE);
       setDate(new Date());
       setShowDatePicker(false);
@@ -35,15 +35,13 @@ export default function TransactionModal() {
     const transaction: Transaction = {
       id: Crypto.randomUUID(),
       title: title.trim(),
-      amount: parseFloat(amount),
+      amount: amount,
       date: date,
       category: type,
     };
     addTransaction(transaction);
     closeModal();
   };
-
-  const isFormValid = title.trim() !== "" && !isNaN(parseFloat(amount)) && parseFloat(amount) > 0;
 
   const onChangeDate = (event: any, selectedDate?: Date) => {
     if (selectedDate) {
@@ -52,8 +50,21 @@ export default function TransactionModal() {
     setShowDatePicker(false);
   };
 
-
   const formattedDate = date.toLocaleDateString("pt-br");
+
+  const formatAmount = (value: number) => {
+    return value.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  };
+
+  const handleAmountChange = (text: string) => {
+    const numeric = Number(text.replace(/\D/g, "")) / 100;
+    setAmount(numeric);
+  };
+
+  const isFormValid = title.trim() !== "" && amount > 0.01;
 
   return (
     <Modal animationType="fade" transparent={true} visible={isModalOpen}>
@@ -64,64 +75,60 @@ export default function TransactionModal() {
 
           <View style={{ gap: 24 }}>
             <TextInput
+              {...textInputProps}
               label="Nome"
               value={title}
               onChangeText={setTitle}
-              mode="flat"
-              underlineColor={colors.textPrimary}
-              activeUnderlineColor={colors.textPrimary}
-              textColor={colors.textPrimary}
-              placeholderTextColor={colors.textSecondary}
-              style={styles.textInput}
+              keyboardType="default"
             />
-
             <TextInput
+              {...textInputProps}
               label="Valor"
-              value={amount}
-              onChangeText={(text) => {
-                const cleanText = text.replace(/[^0-9.]/g, "");
-                setAmount(cleanText);
-              }}
+              value={amount === 0 ? "R$0,00" : formatAmount(amount)}
+              onChangeText={handleAmountChange}
               keyboardType="numeric"
-              mode="flat"
-              underlineColor={colors.textPrimary}
-              activeUnderlineColor={colors.textPrimary}
-              textColor={colors.textPrimary}
-              placeholderTextColor={colors.textSecondary}
-              style={styles.textInput}
             />
 
-            <TouchableOpacity
-              onPress={() => setShowDatePicker(true)}
-              style={styles.datePickerButton}
-            >
-              <Text style={styles.datePickerText}>{formattedDate}</Text>
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity
+                onPress={() => setShowDatePicker(true)}
+                style={styles.datePickerButton}
+              >
+                <Text style={styles.datePickerText}>{formattedDate}</Text>
+              </TouchableOpacity>
 
-            {showDatePicker && (
-              <DateTimePicker
-                minimumDate={new Date(2000, 0, 1)}
-                maximumDate={new Date()}
-                value={date}
-                onChange={onChangeDate}
-                display="spinner"
-                negativeButton={{ textColor: colors.titleText }}
-                positiveButton={{ textColor: colors.titleText }}
-              />
-            )}
+              {showDatePicker && (
+                <DateTimePicker
+                  minimumDate={new Date(2000, 0, 1)}
+                  maximumDate={new Date()}
+                  value={date}
+                  onChange={onChangeDate}
+                  display="spinner"
+                  negativeButton={{ textColor: colors.titleText }}
+                  positiveButton={{ textColor: colors.titleText }}
+                />
+              )}
+            </View>
 
             <RadioButton.Group
               onValueChange={(value) => setType(value as TransactionCategory)}
               value={type}
             >
-              <View style={styles.radioOption}>
+              <TouchableOpacity
+                onPress={() => setType(TransactionCategory.EXPENSE)}
+                style={styles.radioOption}
+              >
                 <RadioButton value={TransactionCategory.EXPENSE} color={colors.buttonDefault} />
                 <Text style={styles.radioLabel}>Despesa</Text>
-              </View>
-              <View style={styles.radioOption}>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={() => setType(TransactionCategory.INCOME)}
+                style={styles.radioOption}
+              >
                 <RadioButton value={TransactionCategory.INCOME} color={colors.buttonDefault} />
                 <Text style={styles.radioLabel}>Receita</Text>
-              </View>
+              </TouchableOpacity>
             </RadioButton.Group>
 
             <AddTransactionButton onPress={handleAddTransaction} disabled={!isFormValid} />
@@ -130,6 +137,15 @@ export default function TransactionModal() {
       </BlurView>
     </Modal>
   );
+}
+
+const textInputProps: TextInputProps = {
+  mode: "flat",
+  underlineColor: colors.textPrimary,
+  activeUnderlineColor: colors.textPrimary,
+  textColor: colors.textPrimary,
+  placeholderTextColor: colors.textPrimary,
+  style: { backgroundColor: "transparent" }
 }
 
 const styles = StyleSheet.create({
