@@ -5,7 +5,7 @@ import { Transaction, TransactionCategory } from "@/types/transaction";
 import { colors } from "@/utils/colors";
 import { BlurView } from "expo-blur";
 import * as Crypto from "expo-crypto";
-import { Modal, StyleSheet, Text, View } from "react-native";
+import { Modal, StyleSheet, Text, TextInput, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
@@ -41,6 +41,15 @@ export default function TransactionModal() {
               CLIQUE AQUI PARA REMOVER GASTOS!
             </Text>
 
+            <TextInput
+              placeholder="Nome"
+            />
+
+            <TextInput
+              placeholder="Nome"
+            />
+
+
             <AddTransactionButton onPress={() => addTransaction(transaction)} />
           </View>
         </View>
@@ -74,5 +83,5 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     padding: 8
-  }
+  },
 })
