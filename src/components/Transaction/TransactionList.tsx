@@ -1,4 +1,4 @@
-import AddTransactionButton from "@/components/Button/AddTransactionButton";
+import MainAddButton from "@/components/Button/MainAddButton";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -29,7 +29,7 @@ export default function TransactionList() {
         }
       </ScrollView>
       <View style={styles.buttonContainer} >
-        <AddTransactionButton />
+        <MainAddButton />
       </View>
       <TransactionModal />
     </View>
