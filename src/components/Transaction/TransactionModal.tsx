@@ -100,12 +100,13 @@ export default function TransactionModal() {
 
             {showDatePicker && (
               <DateTimePicker
-                value={date}
-                mode="date"
-                display="inline"
-                onChange={onChangeDate}
-                maximumDate={new Date(2100, 12, 31)}
                 minimumDate={new Date(2000, 0, 1)}
+                maximumDate={new Date()}
+                value={date}
+                onChange={onChangeDate}
+                display="spinner"
+                negativeButton={{ textColor: colors.titleText }}
+                positiveButton={{ textColor: colors.titleText }}
               />
             )}
 
