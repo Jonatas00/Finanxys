@@ -18,7 +18,7 @@ export default function TransacaoItem({ transaction }: Props) {
           <Text>{new Date(transaction.date).toLocaleDateString("pt-br")}</Text>
         </Text>
       </View>
-      <View style={[styles.view, styles.amountView]}>
+      <View style={styles.amountView}>
         <Text style={[
           styles.amount,
           transaction.category === TransactionCategory.EXPENSE && { color: colors.danger }
