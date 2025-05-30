@@ -8,17 +8,23 @@ type Props = {
 
 export function AddTransactionButton({ onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.background} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>Adicionar</Text>
     </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  background: {
-    backgroundColor: colors.buttonDefault
+  container: {
+    backgroundColor: colors.buttonDefault,
+    height: 50,
+    width: 100,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center"
   },
   text: {
     color: colors.buttonText
-  }
+  },
+
 })
