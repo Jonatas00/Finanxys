@@ -1,6 +1,6 @@
 import { useFonts } from "expo-font";
 
-export default function loadCustomFonts() {
+export default function UseCustomFonts() {
   const [fontsLoaded] = useFonts({
     "kanit-regular": require("@/assets/fonts/Kanit-Regular.ttf"),
     "kanit-light": require("@/assets/fonts/Kanit-Light.ttf"),
@@ -11,5 +11,4 @@ export default function loadCustomFonts() {
   });
 
   return fontsLoaded;
-
 };
