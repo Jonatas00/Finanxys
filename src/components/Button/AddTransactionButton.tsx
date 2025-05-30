@@ -3,15 +3,19 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props = {
   onPress: () => void;
-}
+  disabled?: boolean;
+};
 
-
-export function AddTransactionButton({ onPress }: Props) {
+export function AddTransactionButton({ onPress, disabled = false }: Props) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.container, disabled && styles.disabled]}
+      onPress={onPress}
+      disabled={disabled}
+    >
       <Text style={styles.text}>Adicionar</Text>
     </TouchableOpacity>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -21,10 +25,13 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 8,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+  },
+  disabled: {
+    backgroundColor: "#555", // ou use `colors.buttonDisabled` se tiver definido
+    opacity: 0.6,
   },
   text: {
-    color: colors.buttonText
+    color: colors.buttonText,
   },
-
-})
+});
