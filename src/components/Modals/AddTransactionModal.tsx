@@ -11,7 +11,7 @@ import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { RadioButton, TextInput, TextInputProps } from "react-native-paper";
 import Icon from "react-native-vector-icons/Feather";
 
-export default function TransactionModal() {
+export default function AddTransactionModal() {
   const { isModalOpen, closeModal } = useModalStore();
   const { addTransaction } = useTransactionStore();
 

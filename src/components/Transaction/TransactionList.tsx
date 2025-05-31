@@ -1,9 +1,9 @@
 import MainAddButton from "@/components/Button/MainAddButton";
+import AddTransactionModal from "@/components/Modals/AddTransactionModal";
+import TransactionItem from "@/components/Transaction/TransactionItem";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import TransactionItem from "./TransactionItem";
-import TransactionModal from "./TransactionModal";
 
 export default function TransactionList() {
   const transactions = useTransactionStore(state => state.transactions)
@@ -31,7 +31,7 @@ export default function TransactionList() {
       <View style={styles.buttonContainer} >
         <MainAddButton />
       </View>
-      <TransactionModal />
+      <AddTransactionModal />
     </View>
   )
 };
