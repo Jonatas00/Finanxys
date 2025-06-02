@@ -22,13 +22,11 @@ export default function TransactionList() {
             </View>
           ) : (
             transactions.map((transaction) => (
-              <View>
                 <TransactionItem
                   onPress={() => openModal(ModalType.EDIT, transaction)}
                   key={transaction.id}
                   transaction={transaction}
                 />
-              </View>
             ))
           )
         }
