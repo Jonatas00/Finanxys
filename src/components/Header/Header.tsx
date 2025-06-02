@@ -1,13 +1,16 @@
+import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
 import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 export default function Header() {
+  const transactions = useTransactionStore()
+
   return (
     <View style={styles.container}>
       <Icon
         style={styles.icon}
         name="menu"
-        onPress={() => console.warn("Clicou no Hamburger2")}
+        onPress={() => transactions.clearTransactions()}
       />
       <Text style={[styles.title]}>
         Finanxy$
