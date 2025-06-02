@@ -13,7 +13,7 @@ export function AddTransactionButton({ onPress, disabled = false }: Props) {
       onPress={onPress}
       disabled={disabled}
     >
-      <Text style={styles.text}>Adicionar</Text>
+      <Text style={styles.text}>Salvar</Text>
     </TouchableOpacity>
   );
 }
