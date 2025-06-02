@@ -5,12 +5,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
   transaction: Transaction;
-  onPress: () => void;
+  onPress: (transaction: Transaction) => void;
 }
 
 export default function TransacaoItem({ transaction, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={() => onPress(transaction)}>
       <View style={styles.view}>
         <Text style={styles.title} numberOfLines={1}>
           {transaction.title}

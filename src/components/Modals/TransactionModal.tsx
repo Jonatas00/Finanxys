@@ -1,5 +1,5 @@
 import { AddTransactionButton } from "@/components/Button/AddTransactionButton";
-import { useModalStore } from "@/store/useModalStore";
+import { ModalType, useModalStore } from "@/store/useModalStore";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { Transaction, TransactionCategory } from "@/types/transaction";
 import { colors } from "@/utils/colors";
@@ -13,7 +13,7 @@ import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
 
-  const { isModalOpen, closeModal } = useModalStore();
+  const { isModalOpen, closeModal, type } = useModalStore();
   const { addTransaction } = useTransactionStore();
 
   const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
@@ -71,7 +71,12 @@ export default function TransactionModal() {
     <Modal animationType="fade" transparent={true} visible={isModalOpen}>
       <BlurView intensity={100} tint="dark" style={styles.centerView}>
         <View style={styles.modal}>
-          <Text style={styles.title}>Adicionar Transação</Text>
+          <Text style={styles.title}>
+            {type == ModalType.ADD
+              ? "Adicionar Transação"
+              : "Editar Transação"
+            }
+          </Text>
           <Icon style={styles.closeButton} name="x" onPress={closeModal} />
 
           <View style={{ gap: 24 }}>
