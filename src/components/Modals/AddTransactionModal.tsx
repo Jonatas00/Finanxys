@@ -185,8 +185,9 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   datePickerButton: {
+    padding: 16,
     paddingVertical: 12,
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderBottomColor: colors.textPrimary,
   },
   datePickerText: {
