@@ -4,12 +4,13 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 type Props = {
-  transaction: Transaction
+  transaction: Transaction;
+  onPress: () => void;
 }
 
-export default function TransacaoItem({ transaction }: Props) {
+export default function TransacaoItem({ transaction, onPress }: Props) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.view}>
         <Text style={styles.title} numberOfLines={1}>
           {transaction.title}
