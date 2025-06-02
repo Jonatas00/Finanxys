@@ -11,11 +11,12 @@ import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { RadioButton, TextInput, TextInputProps } from "react-native-paper";
 import Icon from "react-native-vector-icons/Feather";
 
-export default function AddTransactionModal() {
+export default function TransactionModal() {
+
   const { isModalOpen, closeModal } = useModalStore();
   const { addTransaction } = useTransactionStore();
 
-  const [type, setType] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
+  const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
   const [title, setTitle] = useState<string>("");
   const [amount, setAmount] = useState<number>(0);
   const [date, setDate] = useState(new Date());
@@ -25,7 +26,7 @@ export default function AddTransactionModal() {
     if (isModalOpen) {
       setTitle("");
       setAmount(0);
-      setType(TransactionCategory.EXPENSE);
+      setCategory(TransactionCategory.EXPENSE);
       setDate(new Date());
       setShowDatePicker(false);
     }
@@ -37,7 +38,7 @@ export default function AddTransactionModal() {
       title: title.trim(),
       amount: amount,
       date: date,
-      category: type,
+      category: category,
     };
     addTransaction(transaction);
     closeModal();
@@ -111,11 +112,11 @@ export default function AddTransactionModal() {
             </View>
 
             <RadioButton.Group
-              onValueChange={(value) => setType(value as TransactionCategory)}
-              value={type}
+              onValueChange={(value) => setCategory(value as TransactionCategory)}
+              value={category}
             >
               <TouchableOpacity
-                onPress={() => setType(TransactionCategory.EXPENSE)}
+                onPress={() => setCategory(TransactionCategory.EXPENSE)}
                 style={styles.radioOption}
               >
                 <RadioButton value={TransactionCategory.EXPENSE} color={colors.buttonDefault} />
@@ -123,7 +124,7 @@ export default function AddTransactionModal() {
               </TouchableOpacity>
 
               <TouchableOpacity
-                onPress={() => setType(TransactionCategory.INCOME)}
+                onPress={() => setCategory(TransactionCategory.INCOME)}
                 style={styles.radioOption}
               >
                 <RadioButton value={TransactionCategory.INCOME} color={colors.buttonDefault} />

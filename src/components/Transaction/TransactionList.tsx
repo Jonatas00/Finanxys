@@ -1,12 +1,14 @@
 import MainAddButton from "@/components/Button/MainAddButton";
-import AddTransactionModal from "@/components/Modals/AddTransactionModal";
+import TransactionModal from "@/components/Modals/TransactionModal";
 import TransactionItem from "@/components/Transaction/TransactionItem";
+import { ModalType, useModalStore } from "@/store/useModalStore";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function TransactionList() {
   const transactions = useTransactionStore(state => state.transactions)
+  const openModal = useModalStore((state) => state.openModal);
 
   return (
     <View style={styles.transactionsContainer}>
@@ -21,6 +23,7 @@ export default function TransactionList() {
           ) : (
             transactions.map((transaction) => (
               <TransactionItem
+                onPress={() => openModal(ModalType.EDIT)}
                 key={transaction.id}
                 transaction={transaction}
               />
@@ -31,7 +34,7 @@ export default function TransactionList() {
       <View style={styles.buttonContainer} >
         <MainAddButton />
       </View>
-      <AddTransactionModal />
+      <TransactionModal />
     </View>
   )
 };
