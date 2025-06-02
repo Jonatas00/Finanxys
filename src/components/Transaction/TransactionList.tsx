@@ -22,11 +22,11 @@ export default function TransactionList() {
             </View>
           ) : (
             transactions.map((transaction) => (
-                <TransactionItem
-                  onPress={() => openModal(ModalType.EDIT, transaction)}
-                  key={transaction.id}
-                  transaction={transaction}
-                />
+              <TransactionItem
+                onPress={() => openModal(ModalType.EDIT, transaction)}
+                key={transaction.id}
+                transaction={transaction}
+              />
             ))
           )
         }
@@ -34,7 +34,7 @@ export default function TransactionList() {
       <View style={styles.buttonContainer} >
         <MainAddButton />
       </View>
-      <TransactionModal />
+      <TransactionModal/>
     </View>
   )
 };

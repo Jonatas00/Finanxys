@@ -12,8 +12,8 @@ import { RadioButton, TextInput, TextInputProps } from "react-native-paper";
 import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
-
-  const { isModalOpen, closeModal, type } = useModalStore();
+  const { isModalOpen, closeModal, type, transaction } = useModalStore();
+  console.warn(transaction)
   const { addTransaction } = useTransactionStore();
 
   const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);

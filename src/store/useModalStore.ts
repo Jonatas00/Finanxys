@@ -1,4 +1,4 @@
-import { Transaction } from '@/types/transaction';
+import { Transaction } from "@/types/transaction";
 import { create } from 'zustand';
 
 export enum ModalType {
@@ -8,14 +8,16 @@ export enum ModalType {
 
 type ModalStore = {
   isModalOpen: boolean;
-  type: ModalType;
   openModal: (type: ModalType, transaction?: Transaction) => void;
   closeModal: () => void;
+  type: ModalType;
+  transaction?: Transaction;
 }
 
 export const useModalStore = create<ModalStore>((set) => ({
   isModalOpen: false,
   type: ModalType.ADD,
-  openModal: (type) => set({ isModalOpen: true, type }),
-  closeModal: () => set({ isModalOpen: false })
+  transaction: undefined,
+  openModal: (type, transaction) => set({ isModalOpen: true, type, transaction }),
+  closeModal: () => set({ isModalOpen: false, transaction: undefined })
 }));
