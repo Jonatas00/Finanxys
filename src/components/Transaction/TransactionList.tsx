@@ -1,6 +1,6 @@
 import MainAddButton from "@/components/Button/MainAddButton";
-import TransactionModal from "@/components/Transaction/TransactionModal";
 import TransactionItem from "@/components/Transaction/TransactionItem";
+import TransactionModal from "@/components/Transaction/TransactionModal";
 import { ModalType, useModalStore } from "@/store/useModalStore";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
@@ -12,30 +12,31 @@ export default function TransactionList() {
 
   return (
     <View style={styles.transactionsContainer}>
-      <ScrollView >
-        {transactions.length === 0 ?
-          (
-            <View style={styles.emptyContainer}>
-              <Text style={styles.empty}>
-                Comece adicionando seu primeiro gasto
-              </Text>
-            </View>
-          ) : (
-            transactions.map((transaction) => (
+      {transactions.length === 0 ?
+        (
+          <View style={styles.emptyContainer}>
+            <Text style={styles.empty}>
+              Comece adicionando seu primeiro gasto
+            </Text>
+          </View>
+        ) : (
+          <ScrollView >
+            {transactions.map((transaction) => (
               <TransactionItem
                 onPress={() => openModal(ModalType.EDIT, transaction)}
                 key={transaction.id}
                 transaction={transaction}
               />
-            ))
-          )
-        }
-      </ScrollView>
+            ))}
+          </ScrollView>
+        )
+      }
+
       <View style={styles.buttonContainer} >
         <MainAddButton />
       </View>
-      <TransactionModal/>
-    </View>
+      <TransactionModal />
+    </View >
   )
 };
 
