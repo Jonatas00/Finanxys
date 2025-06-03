@@ -13,7 +13,7 @@ import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
   const { isModalOpen, closeModal, type, transaction } = useModalStore();
-  const { addTransaction, updateTransaction } = useTransactionStore();
+  const { addTransaction, updateTransaction, deleteTransaction } = useTransactionStore();
 
   const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
   const [title, setTitle] = useState<string>("");
@@ -150,7 +150,15 @@ export default function TransactionModal() {
               </TouchableOpacity>
             </RadioButton.Group>
 
-            <SaveTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
+            <View style={styles.buttonsContainer}>
+              <SaveTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
+
+              {ModalType.EDIT && transaction &&
+                <TouchableOpacity onPress={() => deleteTransaction(transaction?.id)}>
+                  <Icon name={"trash"} size={36} color={colors.danger} />
+                </TouchableOpacity>
+              }
+            </View>
           </View>
         </View>
       </BlurView>
@@ -213,4 +221,10 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     fontSize: 16,
   },
+  buttonsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center"
+  }
 });
