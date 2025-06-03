@@ -20,10 +20,8 @@ export default function TransacaoItem({ transaction, onPress }: Props) {
         </Text>
       </View>
       <View style={styles.amountView}>
-        <Text style={[
-          styles.amount,
-          transaction.category === TransactionCategory.EXPENSE && { color: colors.danger }
-        ]} numberOfLines={1}>
+        <Text style={styles.amount} numberOfLines={1}>
+          {transaction.category === TransactionCategory.EXPENSE ? "-" : ""}
           R${transaction.amount.toFixed(2)}
         </Text>
       </View>
@@ -62,7 +60,7 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: 20,
-    color: colors.light,
+    color: colors.textPrimary,
     fontFamily: "roboto-regular"
   }
 });
