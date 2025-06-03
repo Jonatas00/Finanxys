@@ -30,12 +30,14 @@ export default function MainCard() {
         <PieChart
           widthAndHeight={125}
           series={chartData}
-          cover={0.7}
+          cover={0.6}
         />
       </View>
       <View style={styles.view}>
-        <Text style={styles.text}>Receita: R$ {income.toFixed(2)}</Text>
-        <Text style={styles.text}>Despesa: R$ {expense.toFixed(2)}</Text>
+        <Text style={styles.text}>Receita: R${income.toFixed(2)}</Text>
+        <Text style={styles.text}>Despesa: R${expense.toFixed(2)}</Text>
+
+        <Text style={[styles.text, { fontWeight: "bold" }]}>TOTAL: R${(income - expense).toFixed(2)}</Text>
       </View>
     </View>
   );
