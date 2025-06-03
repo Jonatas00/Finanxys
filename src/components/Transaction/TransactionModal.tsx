@@ -38,7 +38,7 @@ export default function TransactionModal() {
     }
   }, [isModalOpen, type, transaction]);
 
-  const handleSaveTransaction = () => {
+  function handleSaveTransaction() {
     const newTransaction: Transaction = {
       id: type === ModalType.EDIT && transaction
         ? transaction.id
@@ -56,6 +56,14 @@ export default function TransactionModal() {
     }
     closeModal();
   };
+
+  function handleDeleteTransaction() {
+    if (!transaction) return
+
+    deleteTransaction(transaction.id)
+
+    closeModal();
+  }
 
   const onChangeDate = (event: any, selectedDate?: Date) => {
     if (selectedDate) {
@@ -154,7 +162,7 @@ export default function TransactionModal() {
               <SaveTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
 
               {ModalType.EDIT && transaction &&
-                <TouchableOpacity onPress={() => deleteTransaction(transaction?.id)}>
+                <TouchableOpacity onPress={handleDeleteTransaction}>
                   <Icon name={"trash"} size={36} color={colors.danger} />
                 </TouchableOpacity>
               }
