@@ -1,5 +1,5 @@
 import MainAddButton from "@/components/Button/MainAddButton";
-import TransactionModal from "@/components/Modals/TransactionModal";
+import TransactionModal from "@/components/Transaction/TransactionModal";
 import TransactionItem from "@/components/Transaction/TransactionItem";
 import { ModalType, useModalStore } from "@/store/useModalStore";
 import { useTransactionStore } from "@/store/useTransactionStore";
