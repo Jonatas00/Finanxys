@@ -14,7 +14,7 @@ import Icon from "react-native-vector-icons/Feather";
 export default function TransactionModal() {
   const { isModalOpen, closeModal, type, transaction } = useModalStore();
   console.warn(transaction)
-  const { addTransaction } = useTransactionStore();
+  const { addTransaction, updateTransaction } = useTransactionStore();
 
   const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
   const [title, setTitle] = useState<string>("");
@@ -24,23 +24,37 @@ export default function TransactionModal() {
 
   useEffect(() => {
     if (isModalOpen) {
-      setTitle("");
-      setAmount(0);
-      setCategory(TransactionCategory.EXPENSE);
-      setDate(new Date());
-      setShowDatePicker(false);
+      if (ModalType.EDIT && transaction) {
+        setTitle(transaction.title)
+        setAmount(transaction.amount)
+        setCategory(transaction.category)
+        setDate(new Date(transaction.date))
+      } else {
+        setTitle("");
+        setAmount(0);
+        setCategory(TransactionCategory.EXPENSE);
+        setDate(new Date());
+        setShowDatePicker(false);
+      }
     }
-  }, [isModalOpen]);
+  }, [isModalOpen, type, transaction]);
 
-  const handleAddTransaction = () => {
-    const transaction: Transaction = {
-      id: Crypto.randomUUID(),
+  const handleSaveTransaction = () => {
+    const newTransaction: Transaction = {
+      id: type === ModalType.EDIT && transaction
+        ? transaction.id
+        : Crypto.randomUUID(),
       title: title.trim(),
       amount: amount,
       date: date,
       category: category,
     };
-    addTransaction(transaction);
+
+    if (type === ModalType.ADD) {
+      addTransaction(newTransaction);
+    } else {
+      updateTransaction(newTransaction);
+    }
     closeModal();
   };
 
@@ -90,7 +104,7 @@ export default function TransactionModal() {
             <TextInput
               {...textInputProps}
               label="Valor"
-              value={amount === 0 ? "R$0,00" : formatAmount(amount)}
+              value={amount === 0 ? "R$0" : formatAmount(amount)}
               onChangeText={handleAmountChange}
               keyboardType="numeric"
             />
@@ -137,7 +151,7 @@ export default function TransactionModal() {
               </TouchableOpacity>
             </RadioButton.Group>
 
-            <AddTransactionButton onPress={handleAddTransaction} disabled={!isFormValid} />
+            <AddTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
           </View>
         </View>
       </BlurView>
