@@ -31,7 +31,7 @@ export const useTransactionStore = create<TransactionState>()(
             t.id === updatedTx.id ? updatedTx : t
           ),
         })),
-      deleteTransaction: (id) =>
+      deleteTransaction: (id: string) =>
         set((state) => ({
           transactions: state.transactions.filter((t) => t.id !== id),
         })),
