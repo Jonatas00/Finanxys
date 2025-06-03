@@ -85,7 +85,7 @@ export default function TransactionModal() {
       <BlurView intensity={100} tint="dark" style={styles.centerView}>
         <View style={styles.modal}>
           <Text style={styles.title}>
-            {type == ModalType.ADD
+            {type === ModalType.ADD
               ? "Adicionar Transação"
               : "Editar Transação"
             }
