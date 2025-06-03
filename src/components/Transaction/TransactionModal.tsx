@@ -13,7 +13,6 @@ import Icon from "react-native-vector-icons/Feather";
 
 export default function TransactionModal() {
   const { isModalOpen, closeModal, type, transaction } = useModalStore();
-  console.warn(transaction)
   const { addTransaction, updateTransaction } = useTransactionStore();
 
   const [category, setCategory] = useState<TransactionCategory>(TransactionCategory.EXPENSE);
@@ -79,7 +78,7 @@ export default function TransactionModal() {
     setAmount(numeric);
   };
 
-  const isFormValid = title.trim() !== "" && amount > 0.01;
+  const isFormValid = title.trim() !== "" && amount > 0;
 
   return (
     <Modal animationType="fade" transparent={true} visible={isModalOpen}>
