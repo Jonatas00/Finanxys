@@ -1,4 +1,3 @@
-// store/transactionStore.ts
 import { Transaction } from "@/types/transaction";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
@@ -11,11 +10,12 @@ type TransactionState = {
   deleteTransaction: (id: string) => void;
   clearTransactions: () => void;
 };
+
 function sortByDateDesc(transactions: Transaction[]) {
   return transactions.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
-} 
+}
 
 export const useTransactionStore = create<TransactionState>()(
   persist(
