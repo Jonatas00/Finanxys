@@ -1,4 +1,4 @@
-import { AddTransactionButton } from "@/components/Button/AddTransactionButton";
+import { SaveTransactionButton } from "@/components/Button/SaveTransactionButton";
 import { ModalType, useModalStore } from "@/store/useModalStore";
 import { useTransactionStore } from "@/store/useTransactionStore";
 import { Transaction, TransactionCategory } from "@/types/transaction";
@@ -150,7 +150,7 @@ export default function TransactionModal() {
               </TouchableOpacity>
             </RadioButton.Group>
 
-            <AddTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
+            <SaveTransactionButton onPress={handleSaveTransaction} disabled={!isFormValid} />
           </View>
         </View>
       </BlurView>

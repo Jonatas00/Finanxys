@@ -6,7 +6,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export function AddTransactionButton({ onPress, disabled = false }: Props) {
+export function SaveTransactionButton({ onPress, disabled = false }: Props) {
   return (
     <TouchableOpacity
       style={[styles.container, disabled && styles.disabled]}
