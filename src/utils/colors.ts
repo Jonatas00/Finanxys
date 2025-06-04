@@ -17,5 +17,6 @@ export const colors = {
   modalPrimary: '#333333',
   modalSecondary: '#999999',
 
-  boxShadow: '2px 2px 3px rgba(0, 0, 0, 0.5)',
+  transparent: 'rgba(255, 255, 255, 0)',
+  menuButtonBackground: 'rgba(32, 32, 32, 0.85)',
 };
