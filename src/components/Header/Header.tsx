@@ -1,20 +1,19 @@
-import { useTransactionStore } from "@/store/useTransactionStore";
 import { colors } from "@/utils/colors";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
+
 export default function Header() {
-  const transactions = useTransactionStore()
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
       <Icon
         style={styles.icon}
         name="menu"
-        onPress={() => transactions.clearTransactions()}
+        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
       />
-      <Text style={[styles.title]}>
-        Finanxy$
-      </Text>
+      <Text style={styles.title}>Finanxy$</Text>
     </View>
   );
 }
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 16,
-    height: 75
+    height: 75,
   },
   icon: {
     zIndex: 1,
@@ -38,6 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "center",
     fontFamily: "kanit-regular",
-    fontSize: 40
-  }
+    fontSize: 40,
+  },
 });
