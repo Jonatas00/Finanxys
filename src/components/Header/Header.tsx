@@ -20,15 +20,16 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 0,
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     paddingHorizontal: 16,
-    height: 75,
   },
   icon: {
     zIndex: 1,
     position: "absolute",
-    left: 16,
+    left: 24,
     fontSize: 40,
     color: colors.buttonText,
   },
