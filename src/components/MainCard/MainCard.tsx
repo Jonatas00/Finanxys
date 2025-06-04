@@ -34,10 +34,17 @@ export default function MainCard() {
         />
       </View>
       <View style={styles.view}>
-        <Text style={styles.text}>Receita: R${income.toFixed(2)}</Text>
-        <Text style={styles.text}>Despesa: R${expense.toFixed(2)}</Text>
-
-        <Text style={[styles.text, { fontWeight: "bold" }]}>TOTAL: R${(income - expense).toFixed(2)}</Text>
+        <Text style={styles.text} numberOfLines={1}>
+          Receita: R${income.toFixed(2)}
+        </Text>
+        <Text style={styles.text} numberOfLines={1}>
+          Despesa: R${expense.toFixed(2)}
+        </Text>
+        <Text numberOfLines={1} style={[styles.text, { fontWeight: "bold" }]}>
+          TOTAL:
+          {income - expense < 0 ? " -R$" : " R$"}
+          {Math.abs(income - expense).toFixed(2)}
+        </Text>
       </View>
     </View>
   );
