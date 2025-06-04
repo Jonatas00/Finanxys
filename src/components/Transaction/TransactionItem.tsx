@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: "nowrap",
     justifyContent: "center",
+    minWidth: "25%"
   },
   amountView: {
     alignItems: "flex-end",
