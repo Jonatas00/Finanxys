@@ -16,7 +16,7 @@ O projeto ainda está em construção, logo mais a versão final do projeto ser�
 - **TypeScript**
 - **Zustand**
 - **AsyncStorage**
-
+- **ESLint & Prettier**
 
 ## 🚀 Funcionalidades
 
@@ -25,7 +25,9 @@ O projeto ainda está em construção, logo mais a versão final do projeto ser�
 - Seleção de datas com limite mínimo e máximo;
 - Dados persistidos localmente para uso offline;
 - Interface intuitiva;
-
+- Visualização de saldo total e extrato de transações;
+- Categorização de receitas e despesas;
+- Gráficos para análise financeira;
 ---
 
 ## 💻 Como Executar
