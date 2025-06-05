@@ -88,7 +88,6 @@ export default function MonthChart() {
         noOfSections={4}
         maxValue={Math.max(...barData.map((d) => d.value), 100)}
         isAnimated
-        onPress={() => console.warn(barData)}
       />
     </View>
   );
